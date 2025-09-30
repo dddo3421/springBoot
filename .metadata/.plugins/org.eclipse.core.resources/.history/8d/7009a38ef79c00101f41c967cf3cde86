@@ -1,0 +1,6 @@
+spring.application.name=spring_boot_mybatis
+server.port=8080
+
+#database connection
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+spring.datasource.url=

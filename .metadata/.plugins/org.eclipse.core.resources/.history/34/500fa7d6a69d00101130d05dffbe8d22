@@ -1,0 +1,19 @@
+spring.application.name=spring_boot_mybatis
+server.port=8080
+
+#config jsp
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+
+#database connection 
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.username=C##SHOPDB
+spring.datasource.password=1234
+
+#xml-location
+mybatis.mapper-locations=classpath:mapper/**/*.xml
+
+#file upload
+spring.servlet.multipart.max-file-size=50MB
+spring.servlet.multipart.max-request-size

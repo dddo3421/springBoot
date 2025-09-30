@@ -1,0 +1,21 @@
+package com.spring_boot.projectEx;
+
+public class HomeController {
+
+@RequestMapping("/")
+	@ResponseBody
+@GetMapping("/")
+//	public String home() {
+//		System.out.println("Hello Boot!!");
+//		return "Hello Boot!!"; //view로 인식하면 view를 찾음 404에러 발생,@ResponseBody 사용 Rest 응답
+//	}
+	
+
+//	@GetMapping("/")
+//	public String home(Model model) {
+//		System.out.println("Hello Boot!!");
+//		model.addAttribute("message","안녕하세요");
+//		return "hello"; //view페이지 결정
+//	}	
+		
+}

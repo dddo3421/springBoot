@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- myBatis에서는 현재 xml 문서가 Mapper의 역할을 한다는 정의와 
+	Mapper 태그의 문법을 정의하기위한 DTD 정보를 요구함
+	Mapper 문서에서는 반드시 Mapper를 표현하는 dtd 정보를 표현해야 함 -->
+
+<!-- 아래 mapper에서 구현되는 기능은  IProductDAO 추상메소드로 한정 됨-->	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

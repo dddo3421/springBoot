@@ -1,0 +1,4 @@
+spring.application.name=spring_boot_mybatis
+server.port=8080
+
+#database connection

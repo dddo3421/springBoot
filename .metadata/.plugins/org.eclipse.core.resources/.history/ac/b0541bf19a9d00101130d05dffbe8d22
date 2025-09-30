@@ -1,0 +1,8 @@
+package com.spring_boot_mybatis.project;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class WebConfig implements  {
+
+}

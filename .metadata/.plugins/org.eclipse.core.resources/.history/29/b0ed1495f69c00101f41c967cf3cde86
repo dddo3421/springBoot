@@ -1,0 +1,13 @@
+package com.spring_boot_mybatis.project;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication //현재 프로젝트가 스프링부트 어플리케이션으로 설정
+public class SpringBootMybatisApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootMybatisApplication.class, args);
+	}
+
+}

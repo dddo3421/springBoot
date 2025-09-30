@@ -1,0 +1,14 @@
+package com.spring_boot_mybatis.project;
+
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+//스프링부트 애플리케이션을 web.xml없이 톰캣을 통해 실행하게 해줌ㄴ
+public class ServletInitializer extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(SpringBootMybatisApplication.class);
+	}
+
+}

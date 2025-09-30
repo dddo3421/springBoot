@@ -1,0 +1,7 @@
+spring.application.name=spring_boot_mybatis
+server.port=8080
+
+#database connection
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.dbcp2.abandoned-usage-tracking

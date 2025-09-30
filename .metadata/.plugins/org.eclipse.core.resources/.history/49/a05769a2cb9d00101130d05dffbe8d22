@@ -1,0 +1,124 @@
+package com.spring_boot_mybatis.project.file;
+
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.UUID;
+
+import javax.swing.plaf.multi.MultiFileChooserUI;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+
+@Controller
+public class FileUploadController {
+	@GetMapping("/fileUploadForm")
+	public String viewUploadForm() {	
+		return "upload/fileUploadForm";
+	}
+	
+	@PostMapping("/fileUpload") //전송된 파일을 외부장치(드라이브)에 저장, 예외처리)
+	public String fileUpload(@RequestParam("uploadFile") MultipartFile file, Model model) throws IOException {
+		
+		//1. 파일 저장 경로 설정 - 디렉터리 마지막에 / 있어야 함
+		String uploadPath = "C:/Spring/upload/";
+		
+		//2. 전송된 원본 파일 이름 저장
+		String originalFileName = file.getOriginalFilename(); //전송된 파일 명 추출
+		
+		//3. 파일이름 중복되지 않도록 이름 변경
+		// 서버에 저장할 파일 이름 : UUID 사용
+		UUID uuid = UUID.randomUUID();
+		String saveFilaName = uuid.toString() + "_" + originalFileName;
+		
+		//4.저장을 위한 파일 객체 생성(저장경로를 포함한 파일명으로 객체 생성)
+		File sendFile = new File(uploadPath+saveFilaName);
+		
+		//5. 시스템 내 저장 공간으로 파일 전송
+		file.transferTo(sendFile);
+		
+		//클라이언트에게 전송한 파일의 전송결과를 표현
+		model.addAttribute("originalFileName", originalFileName);
+		
+		return "upload/fileUploadResult";
+	}
+	
+	//여러 파일 업로드 : 여러 파일의 정보 파라미터 전달 ArrayList
+	@PostMapping("/fileUploadMultiple")
+	public String fileUploadMultiple(@RequestParam("uploadFileMulti")
+	ArrayList<MultipartFile> files, Model model) throws IOException {		
+		//1. 파일 저장 경로 설정 - 디렉터리 마지막에 / 있어야 함
+		String uploadPath = "C:/Spring/upload/";
+		
+		//2. 원본 파일 이름 추출 : 여러 개를 저장할 수 있는 변수 구성 이름 저장
+		ArrayList<String> originalFileNameList = new ArrayList<String>();
+		
+		for (MultipartFile file : files) {  
+		    String originalFileName = file.getOriginalFilename();   // 업로드된 파일의 원본 이름 추출  
+		    originalFileNameList.add(originalFileName);             // 원본 파일 이름을 리스트에 저장  
+		    
+		    UUID uuid = UUID.randomUUID();                          // 파일명 중복 방지를 위해 UUID 생성  
+		    String saveFilaName = uuid.toString() + "_" + originalFileName; // 저장할 파일명: UUID_원본이름  
+		    
+		    File sendFile = new File(uploadPath + saveFilaName);    // 실제 저장할 경로와 파일명 지정  
+		    
+		    file.transferTo(sendFile);                              // 업로드된 파일을 지정 경로에 저장  
+		}
+		
+		model.addAttribute("originalFileNameList",originalFileNameList);
+		return "upload/fileUploadMultipleResult";		
+	}
+	
+	//파일 이름 변경하지 않고 파일 업로드 : 중복 파일명 허용(오버라이트 감수)
+	//상품 진열 할 때 상품 이미지명을 상품번호로 구성
+	@PostMapping("/fileOriginalNameUpload")
+	public String fileOriginalNameUpload(@RequestParam("uploadFileOriginal") MultipartFile file, Model model ) throws IOException {
+		String uploadPath = "C:/Spring/upload/product_image/";
+		//"C:/Spring/workspaceBoot/product_images/"
+		String originalFileName = file.getOriginalFilename();
+		File sendfile = new File(uploadPath + originalFileName);
+		file.transferTo(sendfile);
+		
+		model.addAttribute("originalFileName", originalFileName);
+		return "upload/fileUploadResult";
+	}
+
+
+	//////////////////////////////////////////////////
+	/// 비동기통신 요청 처리
+	@GetMapping("/imageFileUploadForm")
+	public String imageFileUpload() {
+		return "upload/imageFileUploadForm";
+	}
+
+	@PostMapping("/imageFileUpload")
+	public String imageFileUpload() {
+		return "
+	}
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
