@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring_boot.projectEx.dao.ICartDAO">
+	<!-- 장바구니에 동일 상품이 존재하는지 확인 -->
+	<select id="checkPrdInCart" parameterType="hashmap"
+		resultType="int">
+		 SELECT COUNT(*) from cart where prdNo =#{prdNo} and memId=#{memId}
+	</select>
+
+	<!-- 장바구니에 동일 상품 존재하지 않으면 장바구니에 추가 : cartNo는 dbms에서 자동증가값으로 저장-->
+	<insert id="insertCart" parameterType="com.spring_boot.projectEx.model.CartVO">
+		INSERT INTO cart(memId, prdNo, cartQty)
+  		VALUES(#{memId}, #{prdNo}, #{cartQty})
+	</insert>
+
+	<!-- 장바구니에 동일 상품 존재하면 상품 수량만 변경
+		 한 명의 회원이 한 개의 상품에 대한 수량을 저장할 수 있음(레코드로 구성)
+		 특정회원의 특정상품 레코드가 두 번 이상 표현될 수 없음
+	 -->
+	<update id="updateQtyInCart" parameterType="com.spring_boot.projectEx.model.CartVO">
+		update cart
+		set cartQty = cartQty+#{cartQty}
+		where memId = #{memId} and prdNo = #{prdNo}
+	</update>
+	
+	<!-- 특정회원의 cart 레코드를 반환 : 카트리스트 (CartVO)
+		 cart 테이블의 레코드와 관련된 상품테이블의 레코드(정보)같이 반환되어야 함
+		 조인 쿼리	
+		 쿼리 결과레코드가 여러 개면 resultType은 자동으로 ArrayList로 구성됨
+	 -->
+	<select id="cartList" parameterType="string" resultType="com.spring_boot.projectEx.model.CartVO">
+		select c.cartNo, p.prdNo, p.prdImg, p.prdName, p.prdPrice, c.cartQty, c.memId
+		from product p, cart c
+		where p.prdNo=c.prdNo and memId=#{memId}
+		order by c.cartNo
+	</select>
+
+
+
+
+</mapper>

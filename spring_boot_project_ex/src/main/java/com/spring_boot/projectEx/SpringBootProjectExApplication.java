@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages= {"com.spring_boot.projectEx"})
-@MapperScan(basePackages= {"com.spring_boot.projectEx"})
+@ComponentScan(basePackages = {"com.spring_boot.projectEx"})
+@MapperScan(basePackages = {"com.spring_boot.projectEx"})
 public class SpringBootProjectExApplication {
 
 	public static void main(String[] args) {

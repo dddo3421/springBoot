@@ -6,13 +6,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>회원 가입 폼</title>	
-		<c:import url="/WEB-INF/views/layout/head.jsp"/>
-
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="<c:url value='/js/idCheck.js'/>"></script>
+		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+		<script src="<c:url value='/js/searchZip.js'/>"></script>
 	</head>
 	<body>
 	<div id="wrap">
-		<!-- top.jsp 임포트 -->
-			<c:import url="/WEB-INF/views/layout/top.jsp"/>
+
 		<section>
 	        <h1 id="title">회원 가입</h1>
 	        <form id="joinForm" name="joinForm" method="post"  
@@ -32,11 +33,11 @@
 		            	<td><input type="password" id="memPwd" name="memPwd"></td>
 	            	</tr>
 		            <tr>
-		            	<th>휴대폰 번호</th>
-		            	<td><input type="text" id="memHp1" name="memHp1" size="3"> 
-		                    - <input type="text" id="memHp2" name="memHp2" size="4">
-		                    - <input type="text" id="memHp3" name="memHp3" size="4"></td>
-                    </tr>
+			            	<th>휴대폰 번호</th>
+			            	<td><input type="text" id="memHp1" name="memHp1" size="3"> 
+			                    - <input type="text" id="memHp2" name="memHp2" size="4">
+			                    - <input type="text" id="memHp3" name="memHp3" size="4"></td>
+	                    </tr>
                     <tr>
 		            	<th>이메일</th>
 		            	<td><input type="email" id="memEmail" name="memEmail"></td>
@@ -60,8 +61,7 @@
 	            </table>
 	      </form>	
       </section>
-    <!-- bottom.jsp 임포트 -->
-	<c:import url="/WEB-INF/views/layout/bottom.jsp"/>
+
      </div>
     </body>
 </html>

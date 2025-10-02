@@ -1,96 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>프로젝트 예제 : index 메인 페이지</title> 
-		<link rel="stylesheet" type="text/css" href="css/common.css">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-		<link rel="stylesheet" type="text/css" href="css/menu.css">
-		<link rel="stylesheet" type="text/css" href="css/slideShow.css">
-		<link rel="stylesheet" type="text/css" href="css/tabMenu.css">
-	    <link rel="stylesheet" type="text/css" href="css/product.css">
-		<script src="js/jquery-3.6.0.min.js"></script>
-		<script src="js/subMenu.js"></script>
-		<script src="js/slideShow.js"></script>
-		<script src="js/tabMenu.js"></script>
-		<script src="js/index.js"></script>
-		<script type="text/javascript">
-		
-		</script>
+		<!-- head.jsp  c:import runtime에 코드 결합-->
+		<c:import url="/WEB-INF/views/layout/head.jsp"/>
 	</head>
 	<body>
     	<div id="wrap"> <!-- 전체 영역 -->
-        	<header>
-        		<div id="headerBox">
-	            	<div id="logoBox"><a href="index.html"><img src="image/logo.png" id="logoImg"></a></div>
-					<div id="topMenuBox">로그인 이벤트 장바구니 고객센터 회원가입</div>
-            	</div>
-            </header>
-            <nav>  <!-- 메뉴영역 -->          
-            	<div id="mainMenuBox">
-            		<ul id="menuItem">
-						<li><a href="#">SPECIAL</a></li>
-						<li><a href="#">메뉴항목1</a></li>
-						<li><a href="#">메뉴항목2</a></li>
-						<li><a href="#">메뉴항목3</a></li>
-						<li><a href="#">메뉴항목4</a></li>
-						<li><a href="#" id="showAllMenu">전체보기 ▼</a></li>
-					</ul>
-            	</div> <!-- mainMenuBox 끝 -->
-                <div id="subMenuBox">
-                	<div class="subMenuItem" id="subMenuItem1">
-						<ul>
-							<li><a href="#">subMenuItem1-1</a></li>
-							<li><a href="#">subMenuItem1-2</a></li>
-							<li><a href="#">subMenuItem1-3</a></li>
-							<li><a href="#">subMenuItem1-4</a></li>
-						</ul>
-					</div>
-					<div class="subMenuItem" id="subMenuItem2">
-						<ul>
-							<li><a href="#">subMenuItem2-1</a></li>
-							<li><a href="#">subMenuItem2-2</a></li>
-							<li><a href="#">subMenuItem2-3</a></li>
-							<li><a href="#">subMenuItem2-4</a></li>
-						</ul>
-					</div>
-					<div class="subMenuItem" id="subMenuItem3">
-						<ul>
-							<li><a href="#">subMenuItem3-1</a></li>
-							<li><a href="#">subMenuItem3-2</a></li>
-							<li><a href="#">subMenuItem3-3</a></li>
-							<li><a href="#">subMenuItem3-4</a></li>
-						</ul>
-					</div>
-					<div class="subMenuItem" id="subMenuItem4">
-						<ul>
-							<li><a href="#">subMenuItem4-1</a></li>
-							<li><a href="#">subMenuItem4-2</a></li>
-							<li><a href="#">subMenuItem4-3</a></li>
-							<li><a href="#">subMenuItem4-4</a></li>
-						</ul>
-					</div>
-					<div class="subMenuItem" id="subMenuItem5">
-						<ul>
-							<li><a href="#">subMenuItem5-1</a></li>
-							<li><a href="#">subMenuItem5-2</a></li>
-							<li><a href="#">subMenuItem5-3</a></li>
-							<li><a href="#">subMenuItem5-4</a></li>
-						</ul>
-					</div>
-					<div class="subMenuItem" id="subMenuItem6">
-						<ul>
-							<li><a href="#">subMenuItem6-1</a></li>
-							<li><a href="#">subMenuItem6-2</a></li>
-							<li><a href="#">subMenuItem6-3</a></li>
-							<li><a href="#">subMenuItem6-4</a></li>
-						</ul>
-					</div>
-                </div>    <!-- subMenuBox 끝 -->            
-            </nav>             
+             <!-- top.jsp -->
+             <c:import url="/WEB-INF/views/layout/top.jsp"/>
             <section><!-- 컨텐츠 영역 -->
             	<article  id="slideShow"> <!-- 슬라이드 쇼 -->   
             	
@@ -151,22 +73,8 @@
 					</div>     
                 </article>
             </section>
-            <footer> <!-- footer -->
-            	<div id="footerBox">
-            	 <div id="bottomMenuBox">
-						<ul id="bottomMenuItem">
-							<li><a href="#">회사소개</a></li>
-							<li><a href="#">이용약관</a></li>
-							<li><a href="#">개인정보 처리방침</a></li>
-							<li><a href="#">전자금융거래약관</a></li>
-							<li><a href="#">보안센터</a></li>
-							<li><a href="#">채용정보</a></li>
-						</ul>
-					</div> <!-- bottomMenuBox 끝 -->
-					<div id="companyInfo"><img src="image/footer.png"></div>
-					<div id="moveToTopBox"><img src="image/moveToTop.png" id="moveToTop"></div>
-            	</div>
-            </footer>
+			<!-- bottom.jsp -->
+			<c:import url="/WEB-INF/views/layout/bottom.jsp"/>
       </div> <!-- wrap 끝 -->
     </body>
 </html>

@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+#chatbotBox {
+	margin:0 auto; 
+	width:500px; 
+	height:700px; 
+	position:fixed;
+	bottom:0px;
+	right:0px;
+
+	border-radius:10px;	
+	z-index:15;
+} 
+
+#chatHeader {
+	padding:10px 15px;
+	/* border-bottom:1px solid ;	 */
+}
+
+#closeBtn { border:none; background:none; float:right; cursor:pointer}
+
+#chatBox {
+	display: flex;
+	flex-direction: column; 
+	width:500px;
+	height:600px;
+	overflow-y:scroll;
+	padding:10px 15px;
+	background:#9bbbd4;	
+}
+
+/*  input 입력란 */
+#message {width:440px;/*  height:30px; */}
+
+#submitBtn  {
+    float: right;
+    height: 30px;
+    border: none;
+    background: yellow;
+    color: black;
+    font-weight: 600;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+/*  앞으로 동적으로 삽입될 태그에 적용할 클래스 : append() 되는 태그에 적용 */
+
+.msgBox {  /* 입력한 메시지가 출력될 박스 */
+	padding:3px 5px;
+	word-break:break-all;
+	max-width:250px;
+	margin-bottom:10px;
+z-index:15;
+}
+
+.msgBox > span {
+	padding:3px 5px;
+	word-break:break-all;
+	display:block;
+	max-width:250px;
+	margin-bottom:10px;
+	border-radius:10px;	
+}
+
+.msgBox.send  > span {
+	float: right;
+	background:#fef01b; 
+}
+
+.msgBox.receive > span {
+	background:#ffffff; 
+	float: left;
+}
+
+/*-----------------------------------------------------------------------------------*/
+
+#cbi{
+	cursor:pointer;
+	position:fixed;
+	bottom:0px;
+	right:0px;
+	width:50px;
+	height:50px;
+	z-index:15;
+}
+.visihide{
+	visibility:hidden; 
+}
